@@ -1,0 +1,19 @@
+{
+  "name": "motaphoto",
+  "version": "1.0.0",
+  "description": "Theme mota photo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renaudghx/motaphoto.git"
+  },
+  "author": "Renaud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Renaudghx/motaphoto/issues"
+  },
+  "homepage": "https://github.com/Renaudghx/motaphoto#readme"
+}
