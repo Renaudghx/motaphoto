@@ -1,0 +1,24 @@
+.menu-nav-footer-container {
+  border-top: 1px solid black;
+  background: #FFFFFF;
+}
+.menu-nav-footer-container .menu {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+.menu-nav-footer-container .menu .menu-item {
+  padding-left: 85px;
+}
+.menu-nav-footer-container .menu .menu-item a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Space Mono", monospace;
+  color: black;
+}
+
+/*# sourceMappingURL=footer.css.map */

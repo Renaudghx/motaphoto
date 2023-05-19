@@ -1,0 +1,39 @@
+/* CSS de la div content */
+.header_content {
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  /* CSS du logo */
+}
+.header_content .custom-logo-link {
+  margin-left: 10%;
+  width: 50%;
+}
+
+/* CSS de la navigation */
+.menu-navigation-container {
+  margin-right: 10%;
+  width: 50%;
+}
+.menu-navigation-container .menu {
+  display: flex;
+  width: auto;
+  list-style-type: none;
+  justify-content: flex-end;
+}
+.menu-navigation-container .menu .menu-item {
+  padding-left: 45px;
+}
+.menu-navigation-container .menu .menu-item a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Space Mono", monospace;
+  color: black;
+}
+.menu-navigation-container .menu .menu-item a:hover {
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=header.css.map */

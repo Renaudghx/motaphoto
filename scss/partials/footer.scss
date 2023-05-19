@@ -1,0 +1,22 @@
+.menu-nav-footer-container {
+  border-top: 1px solid black;
+  background: #FFFFFF;
+  & .menu {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+    & .menu-item {
+      padding-left: 85px;
+      & a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: "Space Mono", monospace;
+        color: black;
+      }
+    }
+  }
+}

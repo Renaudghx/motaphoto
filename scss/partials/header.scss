@@ -1,0 +1,36 @@
+/* CSS de la div content */
+.header_content {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    /* CSS du logo */
+    & .custom-logo-link {
+        margin-left: 10%;
+        width: 50%;
+    }
+}
+/* CSS de la navigation */
+.menu-navigation-container {
+    margin-right: 10%;
+    width: 50%;
+    & .menu {
+        display: flex;
+        width: auto;
+        list-style-type: none;
+        justify-content: flex-end;
+        & .menu-item {
+            padding-left: 45px;
+            & a {
+                text-decoration: none;
+                text-transform: uppercase;
+                font-family: 'Space Mono', monospace; 
+                color: black;            
+                &:hover {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
