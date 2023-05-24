@@ -147,7 +147,8 @@
 .menu-nav-footer-container .menu .menu-item {
   padding-left: 85px;
 }
-.menu-nav-footer-container .menu .menu-item a {
+.menu-nav-footer-container .menu .menu-item a,
+.menu-nav-footer-container .menu .menu-item span {
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Space Mono", monospace;
