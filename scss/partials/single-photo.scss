@@ -1,0 +1,74 @@
+.post-content-photo {
+    padding: 2.6% 10% 0% 10%;
+    display: flex;
+    align-items: flex-end;
+    & .post-column-left {
+        width: 50%;
+        & h1 {
+            max-width: 75%;
+            font-family: "Space Mono", monospace;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 66px;
+            line-height: 58px;
+            text-transform: uppercase;
+            margin: 0px;
+
+        }
+        & .post-description {
+            font-family: "Space Mono", monospace;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 21px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding-bottom: 37px;
+            & .post-taxonomie {
+                margin-top: 20px;
+                margin-bottom: 0px;
+                & a {
+                    text-decoration: none;
+                    color: black;
+                    cursor: text;
+                }
+            }
+        }
+    }
+    & .post-column-right {
+        width: 50%;
+        display: flex;
+        & .wp-post-image {
+            width: 100%;
+        }
+    }
+}
+
+.post-content-contact {
+    display: flex;
+    align-items: center;
+    height: 118px;
+    padding: 0 10% 0 10%;
+    & .post-column-left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 3%;
+        width: 50%;
+        border-top: 1px solid black;
+        height: 100%;
+        & p {
+            width: 50%;
+        }
+        & button {
+            width: 50%;
+            &:hover {
+                color: white;
+                background-color: black;
+            }
+        }
+    }
+    & .post-column-right {
+        width: 50%;
+    }
+}

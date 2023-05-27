@@ -2,7 +2,12 @@
 @import "partials/header.scss";
 @import "partials/footer.scss";
 @import "partials/fonts.scss";
+@import "partials/single-photo.scss";
 
 .inside-site-info {
     display: none;
+}
+
+body {
+    margin: 0;
 }
