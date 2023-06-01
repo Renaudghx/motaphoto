@@ -26,14 +26,5 @@
 .menu-navigation-container .menu .menu-item {
   padding-left: 45px;
 }
-.menu-navigation-container .menu .menu-item a {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: "Space Mono", monospace;
-  color: black;
-}
-.menu-navigation-container .menu .menu-item a:hover {
-  font-weight: 700;
-}
 
 /*# sourceMappingURL=header.css.map */

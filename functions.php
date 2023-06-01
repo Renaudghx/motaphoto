@@ -9,7 +9,7 @@ function theme_enqueue_styles()
     // Chargement du fichier css
     wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/CSS/theme.css'));
     // Chargement du fichier script
-    wp_enqueue_script('theme-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), '1.0', true);
+    wp_enqueue_script('theme-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
 }
 
 // Fonction qui ajoute les emplacements menus au thème et option logo

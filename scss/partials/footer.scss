@@ -11,13 +11,6 @@
     padding: 0px;
     & .menu-item {
       padding-left: 85px;
-      & a,
-      span {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-family: "Space Mono", monospace;
-        color: black;
-      }
     }
   }
 }

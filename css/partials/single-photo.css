@@ -6,14 +6,8 @@
 .post-content-photo .post-column-left {
   width: 50%;
 }
-.post-content-photo .post-column-left h1 {
+.post-content-photo .post-column-left h2 {
   max-width: 75%;
-  font-family: "Space Mono", monospace;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 66px;
-  line-height: 58px;
-  text-transform: uppercase;
   margin: 0px;
 }
 .post-content-photo .post-column-left .post-description {
@@ -26,14 +20,9 @@
   letter-spacing: 0.1em;
   padding-bottom: 37px;
 }
-.post-content-photo .post-column-left .post-description .post-taxonomie {
+.post-content-photo .post-column-left .post-description .single-photo-description {
   margin-top: 20px;
   margin-bottom: 0px;
-}
-.post-content-photo .post-column-left .post-description .post-taxonomie a {
-  text-decoration: none;
-  color: black;
-  cursor: text;
 }
 .post-content-photo .post-column-right {
   width: 50%;
@@ -47,7 +36,9 @@
   display: flex;
   align-items: center;
   height: 118px;
-  padding: 0 10% 0 10%;
+  margin: 0 10% 0 10%;
+  border-bottom: 1px solid black;
+  margin-bottom: 77px;
 }
 .post-content-contact .post-column-left {
   display: flex;
@@ -64,12 +55,24 @@
 .post-content-contact .post-column-left button {
   width: 50%;
 }
-.post-content-contact .post-column-left button:hover {
-  color: white;
-  background-color: black;
-}
 .post-content-contact .post-column-right {
   width: 50%;
+  height: 100%;
+}
+
+.container-thumbnail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.container-thumbnail .single-arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 81px;
+  padding-bottom: 5px;
 }
 
 /*# sourceMappingURL=single-photo.css.map */
