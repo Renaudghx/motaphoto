@@ -22,18 +22,11 @@ $query = new WP_Query(
             $query->the_post();
             ?>
             <div class="container-photo-apparentee">
-                <?php the_post_thumbnail('large', ['style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>
-                <div class="photo-overlay">
-                    <img src="<?= get_template_directory_uri(); ?>/assets/images/Icon_eye.png" alt="">
-                    <div class="container-photo-hover-description">
-                        <div class="hover-photo-description">Référence :
-                            <?= get_field('reference') ?>
-                        </div>
-                        <div class="hover-photo-description">Catégorie :
-                            <?= taxonomy_get_the_terms('categorie'); ?>
-                        </div>
-                    </div>
-                </div>
+                <?php the_post_thumbnail('large', [
+                    'style' => 'width: 100%; height: 100%; object-fit: cover;'
+                ]); 
+                ?>
+                <?php get_template_part('templates_part/photo_overlay');?>
             </div>
             <?php
         endwhile; ?>

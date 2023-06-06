@@ -86,3 +86,17 @@ function footer_txt($items, $args)
 }
 
 add_filter('wp_nav_menu_items', 'footer_txt', 10, 2);
+
+// Hook pour ajouter une classe aux liens des flèches previous / next
+function add_class_previous_link( $html ){
+	$html = str_replace( '<a ', '<a class="a-previous-arrow" ', $html );
+	return $html;
+}
+
+add_filter( 'previous_post_link', 'add_class_previous_link' );
+
+function add_class_next_link( $html ){
+	$html = str_replace( '<a ', '<a class="a-next-arrow" ', $html );
+	return $html;
+}
+add_filter( 'next_post_link', 'add_class_next_link' );

@@ -6,20 +6,39 @@
   top: 0;
   left: 0;
   position: absolute;
-  cursor: pointer;
   opacity: 0;
   transition: all 300ms ease-in-out;
 }
 .photo-overlay:hover {
   opacity: 1;
 }
-.photo-overlay img {
+.photo-overlay .div-sign-full-screen {
+  position: absolute;
+  top: 11px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  background-color: black;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+}
+.photo-overlay .div-sign-full-screen .sign-full-screen {
+  height: 14px;
+}
+.photo-overlay .a-oeil {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
+  height: 31.2px;
+  width: 46px;
+  z-index: 2;
 }
 .photo-overlay .container-photo-hover-description {
   display: flex;

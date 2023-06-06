@@ -67,10 +67,40 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-end;
-  & .single-arrows {
-    display: flex;
-    justify-content: space-between;
-    width: 81px;
-    padding-bottom: 5px;
+  position: relative;
+  & .img-next,
+  .img-previous {
+    position: absolute;
+    top: 0;
+    padding-top: 8px;
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+    z-index: 1;
+  }
+  // & .single-arrows {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   width: 81px;
+  //   padding-bottom: 10px;
+  //   bottom: 0;
+  //   position: absolute;
+  & a {
+    position: absolute;
+    width: 25px;
+    padding-bottom: 10px;
+    bottom: 0;
+  }
+  & .a-previous-arrow {
+    right: 56px;
+    &:hover + .img-previous {
+      opacity: 1;
+      z-index: 2;
+    }
+  }
+  & .a-next-arrow {
+    &:hover + .img-next {
+      opacity: 1;
+      z-index: 2;
+    }
   }
 }

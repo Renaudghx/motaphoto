@@ -1,13 +1,4 @@
-<?php get_header();
-function taxonomy_get_the_terms($taxonomy)
-{
-    $terms = get_the_terms(get_the_ID(), $taxonomy);
-    foreach ($terms as $term) {
-        $term = $term->name;
-    }
-    echo $term;
-}
-?>
+<?php get_header(); ?>
 
 <?php if (have_posts()): ?>
     <section class="section-post-photo">
@@ -34,11 +25,13 @@ function taxonomy_get_the_terms($taxonomy)
                     <div class="single-photo-description">Année :
                         <?= get_the_date('Y'); ?>
                     </div>
+
                 </div>
             </div>
             <div class="post-column-right">
                 <?php the_post_thumbnail('large', ['style' => 'width: 100%; height: auto;']) ?>
             </div>
+
         </div>
         <div class="post-content-contact">
             <div class="post-column-left ">
@@ -47,42 +40,31 @@ function taxonomy_get_the_terms($taxonomy)
             </div>
             <div class="post-column-right">
 
-                <?php
-                // insertion de la miniature + flèches
-                $query = new WP_Query(
-                    array(
-                        'post__not_in' => [get_the_ID()],
-                        'post_type' => 'photo',
-                        'post_per_page' => 1,
-                        'orderby' => 'date',
-                    )
-                );
-                if ($query->have_posts()): ?>
-                    <?php $query->the_post(); ?>
-                    <?php if (has_post_thumbnail()): ?>
-                        <div class="container-thumbnail">
-                            <?php 
-                            the_post_thumbnail('thumbnail', ['style' => 'width: 81px; height: 71px;']); 
-                            wp_reset_postdata(); ?>
-                            <div class="single-arrows">
-                                <?php
-                                previous_post_link('%link', '<img class="arrow-l" src="' . get_template_directory_uri() . '/assets/images/arrow_left.png" alt="">');
-                                next_post_link('%link', '<img class="arrow-r" src="' . get_template_directory_uri() . '/assets/images/arrow_right.png" alt="">');
-                                ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            <?php else: ?>
-                <p>Désolé, aucune photo ne correspond à cette requête</p>
+                <!-- insertion de la miniature + flèches -->
+                <div class="container-thumbnail">
+                    <?php
 
-            <?php endif;
-                wp_reset_postdata(); ?>
+                    next_post_link('%link', '<img class="arrow-r" src="' . get_template_directory_uri() . '/assets/images/arrow_right.png" alt="">');
+
+                    if (get_next_post() != null) {
+                        echo get_the_post_thumbnail(get_next_post(), 'thumbnail', ['style' => 'width: 81px; height: 71px; objectif-fit: cover;', 'class' => 'img-next']);
+                    }
+
+                    previous_post_link('%link', '<img class="arrow-l" src="' . get_template_directory_uri() . '/assets/images/arrow_left.png" alt="">');
+
+                    if (get_previous_post() != null) {
+                        echo get_the_post_thumbnail(get_previous_post(), 'thumbnail', ['style' => 'width: 81px; height: 71px; objectif-fit: cover;', 'class' => 'img-previous']);
+                    }
+
+                    ?>
+                </div>
+            </div>
+
         </div>
         </div>
     </section>
     <section class="photo-block">
-        <?php get_template_part('templates_part/photo_block') ?>
+        <?php get_template_part('templates_part/photo_block'); ?>
     </section>
 <?php endif; ?>
 <?php get_footer(); ?>

@@ -13,9 +13,9 @@ if (postCta != null) {
 }
 function openModale() {
   modaleContent.classList.remove("modale-hide");
-  //Ajout de la rèf photo pour single post (JQuery)
+  //Ajout de la rèf photo pour single post
   if (refPhoto != null) {
-    formRefPhoto.value = refPhoto.innerHTML;
+    formRefPhoto.value = refPhoto.innerText;
   }
 }
 
