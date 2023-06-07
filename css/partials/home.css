@@ -33,5 +33,12 @@
   display: flex;
   justify-content: center;
 }
+.home-cta .cta {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*# sourceMappingURL=home.css.map */

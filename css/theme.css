@@ -194,6 +194,13 @@
   display: flex;
   justify-content: center;
 }
+.home-cta .cta {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .post-content-photo {
   padding: 2.6% 10% 0% 10%;

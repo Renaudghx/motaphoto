@@ -9,6 +9,7 @@ function theme_enqueue_styles()
     // Chargement du fichier css
     wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/CSS/theme.css'));
     // Chargement du fichier script
+    wp_enqueue_script('jquery');
     wp_enqueue_script('theme-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
 }
 
@@ -100,3 +101,40 @@ function add_class_next_link( $html ){
 	return $html;
 }
 add_filter( 'next_post_link', 'add_class_next_link' );
+
+// fonction pour trouver la taxonomie
+function taxonomy_get_the_terms($taxonomy)
+{
+    $terms = get_the_terms(get_the_ID(), $taxonomy);
+    foreach ($terms as $term) {
+        $term = $term->name;
+    }
+    echo $term;
+}
+
+
+// action pour le buton load more
+function weichie_load_more() {
+    $ajaxposts = new WP_Query([
+      'post_type' => 'photo',
+      'posts_per_page' => 12,
+      'orderby' => 'date',
+      'order' => 'DESC',
+      'paged' => $_POST['paged'],
+    ]);
+  
+    $response = '';
+  
+    if($ajaxposts->have_posts()) {
+      while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+        $response .= get_template_part('templates_part/card');
+      endwhile;
+    } else {
+      $response = '';
+    }
+  
+    echo $response;
+    exit;
+  }
+  add_action('wp_ajax_weichie_load_more', 'weichie_load_more');
+  add_action('wp_ajax_nopriv_weichie_load_more', 'weichie_load_more');

@@ -32,4 +32,11 @@
     margin-bottom: 41px;
     display: flex;
     justify-content: center;
+    & .cta {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -44,3 +44,23 @@ window.addEventListener("keydown", function (e) {
     closeModale();
   }
 });
+
+// ----- Script Load more ----- 
+
+let currentPage = 1;
+jQuery('#js-load-more').on('click', function() {
+  currentPage++;
+
+  jQuery.ajax({
+    type: 'POST',
+    url: 'wp-admin/admin-ajax.php',
+    dataType: 'html',
+    data: {
+      action: 'weichie_load_more',
+      paged: currentPage,
+    },
+    success: function (res) {
+      jQuery('.row').append(res);
+    }
+  });
+});
