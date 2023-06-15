@@ -45,22 +45,22 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-// ----- Script Load more ----- 
+// ----- Script Load more jQuery-----
 
 let currentPage = 1;
-jQuery('#js-load-more').on('click', function() {
+jQuery("#js-load-more").on("click", function () {
   currentPage++;
 
   jQuery.ajax({
-    type: 'POST',
-    url: 'wp-admin/admin-ajax.php',
-    dataType: 'html',
+    type: "POST",
+    url: "wp-admin/admin-ajax.php",
+    dataType: "html",
     data: {
-      action: 'weichie_load_more',
+      action: "photo_load_more",
       paged: currentPage,
     },
     success: function (res) {
-      jQuery('.row').append(res);
-    }
+      jQuery(".row").append(res);
+    },
   });
 });

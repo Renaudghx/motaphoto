@@ -11,6 +11,7 @@ function theme_enqueue_styles()
     // Chargement du fichier script
     wp_enqueue_script('jquery');
     wp_enqueue_script('theme-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true);
 }
 
 // Fonction qui ajoute les emplacements menus au thème et option logo
@@ -114,7 +115,7 @@ function taxonomy_get_the_terms($taxonomy)
 
 
 // action pour le buton load more
-function weichie_load_more() {
+function photo_load_more() {
     $ajaxposts = new WP_Query([
       'post_type' => 'photo',
       'posts_per_page' => 12,
@@ -136,5 +137,5 @@ function weichie_load_more() {
     echo $response;
     exit;
   }
-  add_action('wp_ajax_weichie_load_more', 'weichie_load_more');
-  add_action('wp_ajax_nopriv_weichie_load_more', 'weichie_load_more');
+  add_action('wp_ajax_photo_load_more', 'photo_load_more');
+  add_action('wp_ajax_nopriv_photo_load_more', 'photo_load_more');

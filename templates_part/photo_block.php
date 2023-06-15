@@ -23,10 +23,10 @@ $query = new WP_Query(
             ?>
             <div class="container-photo-apparentee">
                 <?php the_post_thumbnail('large', [
-                    'style' => 'width: 100%; height: 100%; object-fit: cover;'
+                    'style' => 'width: 100%; height: 100%; object-fit: cover;',
+                    'class' => 'js-img-lightbox'
                 ]); 
-                ?>
-                <?php get_template_part('templates_part/photo_overlay');?>
+                get_template_part('templates_part/photo_overlay');?>
             </div>
             <?php
         endwhile; ?>

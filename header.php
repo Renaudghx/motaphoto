@@ -10,9 +10,15 @@ if (!defined('ABSPATH')) {
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Site de photographies Motaphoto">
+	<meta name="keywords" content="photographe, event, mariage">
+  	<meta name="author" content="Renaud Gheux">
 	<?php wp_head(); ?>
 	<!-- Delet alert favicon -->
 	<link rel="shortcut icon" href="#">
+	<title>Motaphoto | Photographie - Event - Mariage</title>
+
 </head>
 
 <body <?php body_class(); ?>>
