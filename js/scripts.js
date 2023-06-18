@@ -64,3 +64,20 @@ jQuery("#js-load-more").on("click", function () {
     },
   });
 });
+
+// ----- Script Filters jQuery-----
+
+jQuery("#").on("click", function () {
+
+  jQuery.ajax({
+    type: "POST",
+    url: "wp-admin/admin-ajax.php",
+    dataType: "Json",
+    data: {
+      action: "photo_load_more",
+    },
+    success: function (res) {
+      jQuery(".row").append(res);
+    },
+  });
+});

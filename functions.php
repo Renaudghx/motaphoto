@@ -90,18 +90,20 @@ function footer_txt($items, $args)
 add_filter('wp_nav_menu_items', 'footer_txt', 10, 2);
 
 // Hook pour ajouter une classe aux liens des flèches previous / next
-function add_class_previous_link( $html ){
-	$html = str_replace( '<a ', '<a class="a-previous-arrow" ', $html );
-	return $html;
+function add_class_previous_link($html)
+{
+    $html = str_replace('<a ', '<a class="a-previous-arrow" ', $html);
+    return $html;
 }
 
-add_filter( 'previous_post_link', 'add_class_previous_link' );
+add_filter('previous_post_link', 'add_class_previous_link');
 
-function add_class_next_link( $html ){
-	$html = str_replace( '<a ', '<a class="a-next-arrow" ', $html );
-	return $html;
+function add_class_next_link($html)
+{
+    $html = str_replace('<a ', '<a class="a-next-arrow" ', $html);
+    return $html;
 }
-add_filter( 'next_post_link', 'add_class_next_link' );
+add_filter('next_post_link', 'add_class_next_link');
 
 // fonction pour trouver la taxonomie
 function taxonomy_get_the_terms($taxonomy)
@@ -115,27 +117,29 @@ function taxonomy_get_the_terms($taxonomy)
 
 
 // action pour le buton load more
-function photo_load_more() {
+function photo_load_more()
+{
     $ajaxposts = new WP_Query([
-      'post_type' => 'photo',
-      'posts_per_page' => 12,
-      'orderby' => 'date',
-      'order' => 'DESC',
-      'paged' => $_POST['paged'],
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
     ]);
-  
+
     $response = '';
-  
-    if($ajaxposts->have_posts()) {
-      while($ajaxposts->have_posts()) : $ajaxposts->the_post();
-        $response .= get_template_part('templates_part/card');
-      endwhile;
+
+    if ($ajaxposts->have_posts()) {
+        while ($ajaxposts->have_posts()):
+            $ajaxposts->the_post();
+            $response .= get_template_part('templates_part/card');
+        endwhile;
     } else {
-      $response = '';
+        $response = '';
     }
-  
+
     echo $response;
     exit;
-  }
-  add_action('wp_ajax_photo_load_more', 'photo_load_more');
-  add_action('wp_ajax_nopriv_photo_load_more', 'photo_load_more');
+}
+add_action('wp_ajax_photo_load_more', 'photo_load_more');
+add_action('wp_ajax_nopriv_photo_load_more', 'photo_load_more');

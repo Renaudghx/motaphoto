@@ -10,7 +10,8 @@ $query = new WP_Query(
     array(
         'post_type' => 'photo',
         'post_per_page' => 1,
-        'orderby' => 'rand',7
+        'orderby' => 'rand',
+        7
     )
 );
 if ($query->have_posts()):
@@ -27,8 +28,7 @@ endif;
 wp_reset_postdata();
 
 //Filtre et tri des photos
-
-
+get_template_part('templates_part/filters');
 
 $loop = new WP_Query(
     array(
@@ -53,5 +53,4 @@ wp_reset_postdata(); ?>
     <a href="#!" class="cta" id="js-load-more">Charger plus</a>
 </div>
 
-<?php get_template_part('templates_part/lightbox');
-get_footer(); ?>
+<?php get_footer(); ?>

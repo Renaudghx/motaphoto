@@ -2,33 +2,37 @@
  * @property {HTMLElement} element
  * @property {string[]} images Chemins des images de la lightbox
  * @property {string} url image actuellement affiché
- * @property {string[]} cat catégorie de l'image actuellement affiché
- * @property {string[]} ref ref de l'image actuellement affiché
+ * @property {string[]} cat Tableau des catégories
+ * @property {string[]} ref Tableau des ref
  */
 class Lightbox {
   static init() {
     const links = Array.from(document.querySelectorAll(".js-img-lightbox"));
     const gallery = links.map((link) => link.srcset.split(" ").slice(8, 9));
-    const catref = Array.from(
-      document.querySelectorAll(".container-photo-hover-description")
-    );
-    const ref = catref.map((c) => c.innerText.split("\n").slice(0, 1));
-    const cat = catref.map((r) => r.innerText.split("\n").slice(1, 2));
-    console.log(catref);
-    console.log(cat);
-    console.log(ref);
+    const catref = Array.from(document.querySelectorAll(".container-photo-hover-description"));
+    const ref = catref.map((r) => r.innerText.split("\n").slice(0, 1));
+    const cat = catref.map((c) => c.innerText.split("\n").slice(1, 2));
     const signFull = document.querySelectorAll(".sign-full-screen");
     signFull.forEach((sign) =>
       sign.addEventListener("click", (e) => {
         e.preventDefault();
         new Lightbox(
+          // Target l'URL de l'image
           e.target
             .closest(".photo-overlay")
             .previousSibling.srcset.split(" ")
             .slice(8, 9),
           gallery,
-          cat,
-          ref
+          // Target le référence de la photo
+          e.target
+          .closest(".photo-overlay")
+          .lastChild.previousSibling.innerText.split("\n")
+          .slice(1, 2),
+          // Target la catégorie de la photo
+          e.target
+         .closest(".photo-overlay")
+         .lastChild.previousSibling.innerText.split("\n")
+         .slice(0, 1), ref, cat
         );
       })
     );
@@ -38,14 +42,18 @@ class Lightbox {
    * @param {string} url URL de l'image
    * @param {string[]} images Chemins des images de la lightbox
    * @property {string[]} cat Tableau des catégories
-   * @property {string[]} ref Tableau des ref
+   * @property {string[]} ref Tableau des ref   
+   * @property {string} targetCat Catégorie de la photo au click
+   * @property {string} targetRef Réference de la photo au click 
    */
-  constructor(url, images, cat, ref) {
+  constructor(url, images, targetCat, targetRef, ref, cat) {
     this.element = this.buildDOM(url);
     this.images = images;
-    this.cat = cat;
     this.ref = ref;
-    this.loadImage(url);
+    this.cat = cat;
+    this.targetCat = targetCat;
+    this.targetRef = targetRef;
+    this.loadImage(url, targetRef, targetCat);
     this.onKeyUp = this.onKeyUp.bind(this);
     document.body.appendChild(this.element);
     document.addEventListener("keyup", this.onKeyUp);
@@ -55,7 +63,7 @@ class Lightbox {
    * @param {string} url URL de l'image
    * @return {HTMLElement}
    */
-  buildDOM(url) {
+  buildDOM() {
     const dom = document.createElement("div");
     dom.classList.add("lightbox", "fadeIn");
     dom.innerHTML = `
@@ -108,11 +116,11 @@ class Lightbox {
   }
 
   /**
-   * @param {string} url URL de l'image   
-   * @property {string} txtcat catégorie de l'image actuellement affiché
-   * @property {string} txtref ref de l'image actuellement affiché
+   * @param {string} url URL de l'image
+   * @property {string} loadCat catégorie de l'image actuellement affiché
+   * @property {string} loadRef ref de l'image actuellement affiché
    */
-  loadImage(url, txtref, txtcat) {
+  loadImage(url, loadRef, loadCat) {
     this.url = null;
     const image = new Image();
     const container = this.element.querySelector(".lightbox__container");
@@ -125,24 +133,21 @@ class Lightbox {
       container.appendChild(image);
       this.url = url;
     };
-    image.src = url;
-    containerCat.innerText = txtcat;
-    containerRef.innerText = txtref;
-    }
+      image.src = url;
+      containerCat.innerText = loadCat;
+      containerRef.innerText = loadRef;
+  };  
 
   /**
    * @param {MouseEvent|KeyboardEvent} e
    */
   next(e) {
     e.preventDefault();
-    let i = this.images.findIndex((image) => image === this.url);
-    debugger;
+    let i = this.images.findIndex((image) => image[0] === this.url[0]);
     if (i === this.images.length - 1) {
       i = -1;
     }
-    this.loadImage(this.images[i + 1]);
-    this.loadImage(this.ref[i + 1]);
-    this.loadImage(this.cat[i + 1])
+    this.loadImage(this.images[i + 1], this.ref[i + 1], this.cat[i + 1]);
   }
 
   /**
@@ -150,7 +155,7 @@ class Lightbox {
    */
   prev(e) {
     e.preventDefault();
-    let i = this.images.findIndex((image) => image === this.url);
+    let i = this.images.findIndex((image) => image[0] === this.url[0]);
     if (i === 0) {
       i = this.images.length;
     }

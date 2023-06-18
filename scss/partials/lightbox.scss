@@ -48,12 +48,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 250px;
+    margin-right: 250px;
     min-height: 100vh;
     & img {
       max-width: 100vw;
-      max-height: 100vh;
+      max-height: 95vh;
+      margin-bottom: 5vh;
+    }
+  }
+  & .container-photo-lightbox-description{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: -35px 200px;
+    & .lightbox-photo-cat, .lightbox-photo-ref {
+      color: white;
     }
   }
 }
