@@ -22,7 +22,7 @@
   justify-content: center;
 }
 .row .card-photo {
-  width: calc(50% - 20px);
+  width: calc(50% - 10px);
   height: 34.4vw;
   max-height: 495px;
   position: relative;

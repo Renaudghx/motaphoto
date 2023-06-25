@@ -11,7 +11,7 @@ function theme_enqueue_styles()
     // Chargement du fichier script
     wp_enqueue_script('jquery');
     wp_enqueue_script('theme-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox.js', array(), '1.0', true);
 }
 
 // Fonction qui ajoute les emplacements menus au thème et option logo
@@ -116,7 +116,7 @@ function taxonomy_get_the_terms($taxonomy)
 }
 
 
-// action pour le buton load more
+// Hook Ajax - pour le buton load more
 function photo_load_more()
 {
     $ajaxposts = new WP_Query([
@@ -143,3 +143,66 @@ function photo_load_more()
 }
 add_action('wp_ajax_photo_load_more', 'photo_load_more');
 add_action('wp_ajax_nopriv_photo_load_more', 'photo_load_more');
+
+// Hook Ajax - Filters 
+
+function photo_filters()
+{
+    $ajaxposts = new WP_Query([
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'tax_query' => [
+            [
+                'taxonomy' => $_POST['taxonomy'],
+                'terms' => $_POST['terms'],
+                'field' => 'slug',
+            ]
+        ]
+    ]);
+
+    $response = '';
+
+    if ($ajaxposts->have_posts()) {
+        while ($ajaxposts->have_posts()):
+            $ajaxposts->the_post();
+            $response .= get_template_part('templates_part/card');
+        endwhile;
+    } else {
+        $response = '';
+    }
+
+    echo ($response);
+    wp_reset_postdata();
+    exit;
+}
+add_action('wp_ajax_photo_filters', 'photo_filters');
+add_action('wp_ajax_nopriv_photo_filters', 'photo_filters');
+
+function photo_filters_date()
+{
+    $ajaxpostsdate = new WP_Query([
+        'post_type' => 'photo',
+        'date_query' => array('year' => $_POST['taxonomy']),
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    ]);
+    $response = '';
+
+    if ($ajaxpostsdate->have_posts()) {
+        while ($ajaxpostsdate->have_posts()):
+            $ajaxpostsdate->the_post();
+            $response .= get_template_part('templates_part/card');
+        endwhile;
+    } else {
+        $response = '';
+    }
+
+    echo ($response);
+    wp_reset_postdata();
+    exit;
+}
+add_action('wp_ajax_photo_filters_date', 'photo_filters_date');
+add_action('wp_ajax_nopriv_photo_filters_date', 'photo_filters_date');

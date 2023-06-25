@@ -40,7 +40,7 @@ $loop = new WP_Query(
     )
 );
 if ($loop->have_posts()): ?>
-    <div class="row">
+    <div class="row" id="row">
         <?php while ($loop->have_posts()):
             $loop->the_post();
             get_template_part('templates_part/card');
