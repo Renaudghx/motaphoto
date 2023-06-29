@@ -54,29 +54,20 @@
     }
   }
 }
+.overlay-mobile {
+  display: none;
+}
 
-.photo-block {
-  padding: 0% 10% 0% 10%;
-  margin-bottom: 65px;
-  & .photo-apparentee {
-    margin-top: 52px;
-    margin-bottom: 52px;
-    display: flex;
-    height: 50vh;
-    gap: 20px;
-    & .container-photo-apparentee {
-      width: 50%;
-      height: 100%;
-      gap: 0;
-      position: relative;
-    }
+@media screen and (max-width: 766px) {
+  .photo-overlay{
+    display: none;
   }
-  & .div-cta {
+  .overlay-mobile {
     display: flex;
-    justify-content: center;
-    & a {
-      width: 100%;
-      max-width: 272px;
-    }
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 }

@@ -20,7 +20,7 @@ if ($query->have_posts()):
         <div class="container-hero">
             <h1>Photographe Event</h1>
             <?php
-            the_post_thumbnail('2048x2048', ['style' => 'width: 100%; height: 100vh; object-fit: cover;']);
+            the_post_thumbnail('2048x2048', ['style' => 'width: 100%; height: 100%; object-fit: cover;']);
             ?>
         </div>
     <?php endif;

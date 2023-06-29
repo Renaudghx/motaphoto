@@ -14,7 +14,7 @@ function theme_enqueue_styles()
     wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox.js', array(), '1.0', true);
 }
 
-// Fonction qui ajoute les emplacements menus au thème et option logo
+// Fonction qui ajoute les emplacements menus au thème + option logo + image mis en avant
 function motaphoto_supports()
 {
     register_nav_menus(
@@ -206,3 +206,17 @@ function photo_filters_date()
 }
 add_action('wp_ajax_photo_filters_date', 'photo_filters_date');
 add_action('wp_ajax_nopriv_photo_filters_date', 'photo_filters_date');
+
+// move admin bar to footer
+function move_admin_bar()
+{
+    if (is_admin_bar_showing()) {
+        echo '<style type="text/css">';
+        if (wp_is_mobile()) {
+            show_admin_bar(false);
+            echo 'body{margin-top: -46px; padding-bottom: 0}';
+        }
+        echo '</style>';
+    }
+}
+add_action('wp_head', 'move_admin_bar');

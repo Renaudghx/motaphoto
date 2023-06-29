@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 5;
+  z-index: 20;
   background-color: rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.3s both ease-in-out;
   width: 100%;
@@ -111,6 +111,27 @@
   }
   to {
     transform: translateY(100px);
+  }
+}
+@media screen and (max-width: 766px) {
+  .modale-content .modale-box {
+    width: 75%;
+  }
+  .modale-content .modale-box .modale-border .modale-background {
+    background-size: cover;
+    height: 50px;
+  }
+  .modale-content .modale-box .modale-border .wpcf7 {
+    margin: 0% 10% 7.5% 10%;
+  }
+  .modale-content .modale-box .modale-border .wpcf7 p {
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .modale-content .modale-box {
+    width: 60%;
   }
 }
 

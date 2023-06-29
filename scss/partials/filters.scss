@@ -1,20 +1,22 @@
 .container-select {
-  height: 100%;
+  height: 215px;
   margin: 79px 10% 0 10%;
   display: flex;
-  flex-direction: row;
-  align-content: center;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
+  align-items: flex-start;
+  overflow-y: hidden; /* Hide scrollbars */
+  overflow-x: visible;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
   & .container-select-cat-format {
     display: flex;
     width: calc(50% - 10px);
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 20px;
     height: 43px;
   }
@@ -89,7 +91,7 @@
   }
   & .js-list-li:hover,
   .js-list-li-format:hover,
-  .js-list-li-date:hover{
+  .js-list-li-date:hover {
     background-color: #ffd6d6;
   }
   & .js-list-li:active,
@@ -106,7 +108,7 @@
   & li:first-child.init-select-active,
   li:first-child.init-select-active-format,
   li:first-child.init-select-active-date {
-    border: 1px solid #215AFF;
+    border: 1px solid #215aff;
     border-radius: 8px 8px 0 0;
   }
 }
@@ -116,8 +118,6 @@
 .filter-chevron-rotate-date {
   transform: rotate(0.5turn);
 }
-
-
 
 .select-format {
   z-index: 4;
@@ -133,5 +133,26 @@
   }
   to {
     transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .container-select {
+    & .container-select-date,
+    .container-select-cat-format {
+      width: auto;
+    }
+    & .container-select-date{
+      margin-left: 20px;
+    }
+    & ul {
+      width: 270px;
+    }
+  }
+}
+
+@media screen and (max-width: 466px) {
+  .container-select ul {
+    width: 256px;
   }
 }

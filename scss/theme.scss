@@ -8,274 +8,303 @@
 @import "partials/filters.scss";
 
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
-    --red: #E00000; /* var(--red) */
-    --saumon: #FE5858; /* var(--saumon) */
-    --red-light: #EDEDED; /* var(--red-light) */
-    --black: #000000; /* var(--black) */    
-    --blue-dark: #313144; /* var(--blue-dark) */
-    --grey-dark: #C4C4C4; /* var(--grey-dark) */
-    --grey: #D8D8D8; /* var(--grey) */
-    --grey-light: #E5E5E5; /* var(--grey-light) */
-  }
+  --red: #e00000; /* var(--red) */
+  --saumon: #fe5858; /* var(--saumon) */
+  --red-light: #ededed; /* var(--red-light) */
+  --black: #000000; /* var(--black) */
+  --blue-dark: #313144; /* var(--blue-dark) */
+  --grey-dark: #c4c4c4; /* var(--grey-dark) */
+  --grey: #d8d8d8; /* var(--grey) */
+  --grey-light: #e5e5e5; /* var(--grey-light) */
+}
 
 h1 {
-    font-family: 'Space Mono', monospace;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 96px;
-    line-height: 142px;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: white;
-    letter-spacing: -1.5px;
+  font-family: "Space Mono", monospace;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 142px;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  letter-spacing: -1.5px;
 }
 
 /* H2 desktop */
 h2 {
-    font-family: 'Space Mono', monospace;
-    font-style: italic;
-    font-size: 66px;
-    line-height: 58px;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--black);
+  font-family: "Space Mono", monospace;
+  font-style: italic;
+  font-size: 66px;
+  line-height: 58px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--black);
 }
 
 /* H3 */
 h3 {
-    font-family: 'Space Mono', monospace;
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin: 0;
+  font-family: "Space Mono", monospace;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin: 0;
 }
 
 /* p */
 p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 /* Menu Nav Header / Footer */
-.menu-item a, .menu-item span {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Space Mono', monospace; 
-    font-weight: 400;
-    color: var(--black);            
- }
- .menu-item a:hover {
-    font-weight: 700;
+.menu-item a,
+.menu-item span {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  color: var(--black);
+}
+.menu-item a:hover {
+  font-weight: 700;
 }
 
 /* Description photo */
 
-.single-photo-description, .lightbox-photo-cat, .lightbox-photo-ref {
-    font-family: 'Space Mono', monospace;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--black);
+.single-photo-description,
+.lightbox-photo-cat,
+.lightbox-photo-ref {
+  font-family: "Space Mono", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
 }
 
 .cta {
-    border: none!important;
-    background-color: var(--grey);
-    font-family: "Space Mono", monospace;
-    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.02);
-    border-radius: 2px!important;
-    font-size: 12px;
-    height: 50px!important;
-    transition: all 300ms ease-out;
-    max-width: 272px;
-    width: 100%;
-    cursor: pointer ;
-    &:hover {
-      color: white;
-      background-color: black;
-    }
+  border: none !important;
+  background-color: var(--grey);
+  font-family: "Space Mono", monospace;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.02);
+  border-radius: 2px !important;
+  font-size: 12px;
+  height: 50px !important;
+  transition: all 300ms ease-out;
+  max-width: 272px;
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  h2 {
+    font-size: 46px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  h1 {
+    font-size: 28px;
+    line-height: 41px;
+    letter-spacing: 0em;
+    -webkit-text-stroke-width: 1px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  h1 {
+    font-size: 70px;
+  }
+  h2 {
+    font-size: 46px;
+    line-height: 48px;
+    letter-spacing: 0em;
+  }
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-BlackItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Space Mono';
-    src: url('../fonts/SpaceMono-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-ThinItalic.ttf') format('truetype');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Space Mono';
-    src: url('../fonts/SpaceMono-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-SemiBoldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Thin.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Space Mono';
-    src: url('../fonts/SpaceMono-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Space Mono';
-    src: url('../fonts/SpaceMono-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-ExtraLight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-ExtraLightItalic.ttf') format('truetype');
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-MediumItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-ExtraBold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }

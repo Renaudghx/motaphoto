@@ -14,3 +14,4 @@
         </div>
     </div>
 </div>
+<a class="overlay-mobile" href="<?php the_permalink() ?>"></a>

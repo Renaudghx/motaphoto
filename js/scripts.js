@@ -5,9 +5,11 @@ const modaleBox = document.querySelector(".modale-box");
 const postCta = document.getElementById("js-post-cta");
 const refPhoto = document.getElementById("ref-photo");
 const formRefPhoto = document.getElementById("form-ref-photo");
+const btnContactMobile = document.getElementById("js-mobile-contact");
 
 // Fait apparaitre la modale au clic
 btnContact.addEventListener("click", openModale);
+btnContactMobile.addEventListener("click", openModale);
 if (postCta != null) {
   postCta.addEventListener("click", openModale);
 }

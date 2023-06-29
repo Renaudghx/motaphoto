@@ -1,16 +1,28 @@
 .menu-nav-footer-container {
   border-top: 1px solid black;
   background: #FFFFFF;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
   & .menu {
     display: flex;
     list-style-type: none;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 40px;
     margin: 0px;
     padding: 0px;
-    & .menu-item {
-      padding-left: 85px;
-    }
+    width: 100%;
+    max-width: 620px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .menu-nav-footer-container .menu {
+    flex-direction: column;
+    height: 120px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-content: space-between;
   }
 }
