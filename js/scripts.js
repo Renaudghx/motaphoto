@@ -56,32 +56,16 @@ jQuery("#js-load-more").on("click", function () {
   jQuery.ajax({
     type: "POST",
     url: "wp-admin/admin-ajax.php",
-    dataType: "html",
+    dataType: "json",
     data: {
       action: "photo_load_more",
       paged: currentPage,
     },
     success: function (res) {
-      jQuery(".row").append(res);
-    },
-  });
-});
-
-// ----- Script Filters cat jQuery-----
-jQuery(".js-list-li").click(function () {
-  var liValue = jQuery(this).attr("data-value");
-  jQuery.ajax({
-    type: "POST",
-    url: "wp-admin/admin-ajax.php",
-    dataType: "html",
-    data: {
-      action: "photo_filters",
-      taxonomy: "categorie",
-      terms: liValue,
-    },
-    success: function (res) {
-      document.getElementById("row").innerHTML = "";
-      jQuery("#row").append(res);
+      if (currentPage >= res.max) {
+        jQuery("#js-load-more").hide();
+      }
+      jQuery(".row").append(res.html);
     },
   });
 });
@@ -111,25 +95,6 @@ jQuery(".js-list-li").click(function () {
   jQuery(this).addClass("color-li");
 });
 
-// ----- Script Filters format jQuery-----
-jQuery(".js-list-li-format").click(function () {
-  var liValueFormat = jQuery(this).attr("data-value");
-  jQuery.ajax({
-    type: "POST",
-    url: "wp-admin/admin-ajax.php",
-    dataType: "html",
-    data: {
-      action: "photo_filters",
-      taxonomy: "format",
-      terms: liValueFormat,
-    },
-    success: function (res) {
-      document.getElementById("row").innerHTML = "";
-      jQuery("#row").append(res);
-    },
-  });
-});
-
 // Gestion animation filters format
 
 jQuery(".select-format").click(function () {
@@ -157,24 +122,6 @@ jQuery(".js-list-li-format").click(function () {
   jQuery(this).addClass("color-li-format");
 });
 
-// ----- Script Filters Date jQuery-----
-jQuery(".js-list-li-date").click(function () {
-  var liValueDate = jQuery(this).attr("data-value");
-  jQuery.ajax({
-    type: "POST",
-    url: "wp-admin/admin-ajax.php",
-    dataType: "html",
-    data: {
-      action: "photo_filters_date",
-      date: liValueDate,
-    },
-    success: function (res) {
-      document.getElementById("row").innerHTML = "";
-      jQuery("#row").append(res);
-    },
-  });
-});
-
 // Gestion animation filters date
 
 jQuery(".select-date").click(function () {
@@ -198,4 +145,50 @@ jQuery(".js-list-li-date").click(function () {
   jQuery(".select-date li:first-child").html(selected_li_date);
   jQuery(".js-list-li-date").removeClass("color-li-date");
   jQuery(this).addClass("color-li-date");
+});
+
+// ----- Script Filters jQuery-----
+
+categorieOption = null;
+formatOption = null;
+orderBy = "DESC";
+
+const selectOption = () => {
+  document.getElementById("row").innerHTML = "";
+  getPosts(categorieOption, formatOption, orderBy);
+};
+
+function getPosts(categorie, format, date) {
+  jQuery.ajax({
+    type: "POST",
+    url: "wp-admin/admin-ajax.php",
+    dataType: "html",
+    data: {
+      action: "photo_filters",
+      categorie: categorieOption,
+      format: formatOption,
+      date: orderBy,
+    },
+    success: function (res) {
+      jQuery("#row").append(res);
+    },
+    error: function (err) {
+      console.log(err.statusText);
+    },
+  });
+}
+
+jQuery(".js-list-li").click(function () {
+  categorieOption = jQuery(this).attr("data-value");
+  selectOption();
+});
+
+jQuery(".js-list-li-format").click(function () {
+  formatOption = jQuery(this).attr("data-value");
+  selectOption();
+});
+
+jQuery(".js-list-li-date").click(function () {
+  orderBy = jQuery(this).attr("data-value");
+  selectOption();
 });

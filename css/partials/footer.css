@@ -1,7 +1,7 @@
 .menu-nav-footer-container {
   border-top: 1px solid black;
   background: #FFFFFF;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
 }

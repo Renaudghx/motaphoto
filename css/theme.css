@@ -26,7 +26,6 @@
   overflow: hidden;
 }
 .modale-content .modale-box .modale-border .modale-background {
-  background: url(../assets/images/Contact.png);
   width: 120%;
   height: 106px;
   left: -10%;
@@ -305,7 +304,7 @@
 .menu-nav-footer-container {
   border-top: 1px solid black;
   background: #FFFFFF;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -332,7 +331,7 @@
 }
 .container-hero {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 .container-hero h1 {
